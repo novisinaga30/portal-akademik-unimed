@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 const daftarMataKuliah = [
   {
@@ -51,10 +51,17 @@ const daftarMataKuliah = [
 export default function KRSPage() {
   const [keyword, setKeyword] = useState("");
   const [hari, setHari] = useState("Semua");
-  const [dipilih, setDipilih] = useState(["SI501", "SI502"]);
+  const [dipilih, setDipilih] = useState(() => {
+  const data = localStorage.getItem("krsDipilih");
+  return data ? JSON.parse(data) : [];
+});
   const [pesan, setPesan] = useState("KRS semester ini siap diatur.");
 
   const batasSks = 24;
+
+  useEffect(() => {
+  localStorage.setItem("krsDipilih", JSON.stringify(dipilih));
+}, [dipilih]);
 
   const totalSks = useMemo(() => {
     return daftarMataKuliah
