@@ -54,4 +54,4 @@ Menampilkan daftar pengumuman akademik berdasarkan kategori.
 1. Clone repository:
 
 ```bash
-git clone https://github.com/USERNAME/portal-akademik-unimed.git
+git clone https://github.com/novinovanisinaga14@gmail.com/portal-akademik-unimed.git
